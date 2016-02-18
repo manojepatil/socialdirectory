@@ -39,8 +39,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
         }
 
 
+//add comment
 
-        
 
         edit_nome = (EditText) findViewById(R.id.edit_nome);
         edit_email = (EditText) findViewById(R.id.edit_email);
