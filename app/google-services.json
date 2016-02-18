@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_id": "addressbook-1224",
+    "project_number": "691811437447",
+    "name": "addressbook"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691811437447:android:8167af9317c8aea5",
+        "client_id": "android:com.addressbook.activity",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.addressbook.activity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691811437447-omjeuupk70bdu7sh0p5pncf13td3pla4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.addressbook.activity",
+            "certificate_hash": "037256A92FDFD43A03F5E12FA60F4E3A53E5A444"
+          }
+        },
+        {
+          "client_id": "691811437447-amgu3jk96h1f3qkad64kp0odns2t5upi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

@@ -1,0 +1,84 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:columnCount="2"
+    android:rowCount="12">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image"
+            android:layout_column="0"
+            android:layout_weight="0"
+            android:contentDescription="Photo"
+            android:clickable="true"
+            android:minWidth="100dp"
+            android:padding="5dp"
+            android:layout_span="2"
+            android:layout_gravity="right|center_horizontal"
+            android:background="#858383"
+            android:layout_margin="5dp"
+            android:minHeight="100dp" />
+
+        <EditText
+
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+
+            android:id="@+id/name"
+            android:layout_span="1"
+            android:hint="Name"
+            android:layout_margin="5dp" />
+
+
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+
+            android:id="@+id/email"
+            android:layout_span="5"
+            android:hint="Email"
+            android:layout_margin="5dp" />
+
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+
+            android:id="@+id/password"
+            android:hint="Password"
+            android:layout_margin="5dp" />
+
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+
+            android:id="@+id/cpassword"
+            android:hint="Confirm Password"
+            android:layout_margin="5dp" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:id="@+id/signup2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_gravity="center_horizontal"
+            android:background="#8275f6"
+            android:textColor="#ffffff"
+            android:textColorHighlight="#ffffff"
+            android:textStyle="bold" />
+
+
+
+</LinearLayout>
