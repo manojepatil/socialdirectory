@@ -38,6 +38,10 @@ public class RegisterActivity extends Activity implements View.OnClickListener{
             email = savedInstanceState.getString(Constants.TAG_EMAIL);
         }
 
+
+
+        
+
         edit_nome = (EditText) findViewById(R.id.edit_nome);
         edit_email = (EditText) findViewById(R.id.edit_email);
         edit_email.setText(email);
