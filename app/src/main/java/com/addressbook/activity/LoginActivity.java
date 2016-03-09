@@ -48,7 +48,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
-
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.Auth;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -109,6 +110,7 @@ public class LoginActivity extends AppCompatActivity implements
 
     private TextView txt_create, txt_forgot;
     private LoginButton facebookLoginButton;
+    private Button skip_Button;
 
     ProgressDialog ringProgressDialog;
 
@@ -150,17 +152,35 @@ public class LoginActivity extends AppCompatActivity implements
         mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(this);
 
+        //Skip button
+        skip_Button=(Button) findViewById(R.id.skip_btn);
+        skip_Button.setOnClickListener(this);
+
         //Google+ Login
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+               // .requestScopes(Scopes.PLUS_LOGIN)
+                .requestScopes(new Scope(Scopes.PLUS_LOGIN))
+                .requestScopes(new Scope(Scopes.PLUS_ME))
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+
         mPlusSignInButton = (SignInButton) findViewById(R.id.g_sign_in_button);
         mPlusSignInButton.setSize(SignInButton.SIZE_WIDE);
         mPlusSignInButton.setOnClickListener(this);
+        mPlusSignInButton.setScopes(gso.getScopeArray());
 
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
+      /*  mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(Plus.API)
-                .addScope(new Scope(Scopes.PROFILE))
-                .build();
+                .addScope(new Scope(Scopes.PLUS_LOGIN))
+                .addScope(new Scope(Scopes.PLUS_ME))
+                .build();*/
 
         //Facebook Login
         facebookLoginButton = (LoginButton)findViewById(R.id.f_sign_in_button);
@@ -414,6 +434,12 @@ public class LoginActivity extends AppCompatActivity implements
                 startActivity(intentForgot);
                 finish();
                 break;
+            case R.id.skip_btn:
+                Intent intentMain = new Intent(LoginActivity.this, MainActivity.class);
+                intentMain.putExtra(Constants.TAG_EMAIL, email);
+                startActivity(intentMain);
+                finish();
+                break;
         }
     }
 
@@ -421,7 +447,7 @@ public class LoginActivity extends AppCompatActivity implements
 //        toastLoading.show();
         // User clicked the sign-in button, so begin the sign-in process and automatically
         // attempt to resolve any errors that occur.
-        ringProgressDialog = ProgressDialog.show(LoginActivity.this, "Connecting...", "Atempting to connect", true);
+        ringProgressDialog = ProgressDialog.show(LoginActivity.this, "Connecting...", "Attempting to connect", true);
         ringProgressDialog.setCancelable(false);
         new Thread(new Runnable() {
             @Override
